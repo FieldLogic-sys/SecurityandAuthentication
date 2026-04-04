@@ -1,0 +1,26 @@
+# [ENVIRONMENT]
+.vscode/
+.vs/
+UserAuthInMemoryApp.userprefs
+*.suo
+*.user
+
+# [BINARIES]
+bin/
+obj/
+out/
+
+# [DATABASES]
+*.db
+*.sdb
+*.sqlite
+
+# [OS SPECIFIC]
+.DS_Store
+Thumbs.db
+
+# [USER SPECIFIC]
+*.swp
+*.*~
+project.lock.json
+.ionide/
