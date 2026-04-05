@@ -51,6 +51,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapGet("/api/test", () => "System is Online");
 
 app.Run();
 

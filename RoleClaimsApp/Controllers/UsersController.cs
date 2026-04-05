@@ -10,7 +10,8 @@ namespace RoleClaimsApp.Controllers;
 public class UsersController : ControllerBase
 {
     // Fix: Changed "role-base" to "role-based" to match your URI
-    [HttpGet("role-based")] 
+    [HttpGet("role-based")]
+    [AllowAnonymous]
     [Authorize(Roles = "Admin")]
     public IActionResult GetUsersByRole()
     {
@@ -23,4 +24,12 @@ public class UsersController : ControllerBase
     {
         return Ok(new { Message = "Access granted: You are part of the IT Department."});
     }
+    [HttpGet("login-test")]
+[AllowAnonymous]
+public async Task<IActionResult> LoginTest([FromServices] SignInManager<IdentityUser> signInManager)
+{
+    // Log in the user we seeded in Program.cs
+    await signInManager.PasswordSignInAsync("tony@globalelite.com", "P@ssword123!", false, false);
+    return Ok("You are now logged in as Tony.");
+}
 } // Ensure this closing brace exists
